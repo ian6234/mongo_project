@@ -16,5 +16,12 @@ async def root():
 
 @app.get("/symbols/{symbol}")
 async def say_hello(symbol: str):
-    ticker = my_collection.find_one({"symbol": symbol})
+    if symbol == 'all':
+        ticker = list(my_collection.find())
+    else:
+        ticker = my_collection.find_one({"symbol": symbol})
+
+    for t in ticker:
+        if "_id" in t:
+            t["_id"] = str(t["_id"])
     return ticker

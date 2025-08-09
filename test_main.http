@@ -7,3 +7,7 @@ Accept: application/json
 GET http://127.0.0.1:8000/symbols/600028.SS
 Accept: application/json
 ###
+
+GET http://127.0.0.1:8000/symbols/all
+Accept: application/json
+###
